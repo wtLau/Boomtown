@@ -2,8 +2,8 @@ import React from 'react';
 import './style.css';
 
 
-const Items = () => (
+const ItemCard = () => (
   <h1>Item JS</h1>
 );
 
-export default Items;
+export default ItemCard;

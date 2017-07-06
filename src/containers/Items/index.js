@@ -1,5 +1,5 @@
-import ItemsContainer from './ItemsCardList';
-import Items from './ItemCard';
+import ItemsCardList from './ItemsCardList';
+import ItemCard from './ItemCard';
 
-export { Items };
-export default ItemsContainer;
+export { ItemCard };
+export default ItemsCardList;

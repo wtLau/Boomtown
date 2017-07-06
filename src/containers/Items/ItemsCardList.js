@@ -1,13 +1,27 @@
 import React, { Component } from 'react';
-import Items from './Items';
+import ItemCard from './ItemCard';
 
-class ItemsContainer extends Component {
+class ItemsCardList extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      loading: true,
+      itemsData: []
+    };
+  }
+
+  componentDidMount() {
+
+  }
+
   render() {
     return (
-      <Items />
+      <ItemCard />
     );
   }
 }
 
 
-export default ItemsContainer;
+export default ItemsCardList;
