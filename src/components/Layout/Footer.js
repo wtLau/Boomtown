@@ -3,7 +3,7 @@ import './styles.css';
 
 
 const Footer = () => (
-  <p>© 2017 Boomtown Corp. All Rights Reserved</p>
+  <p className="copyright">© 2017 Boomtown Corp. All Rights Reserved</p>
 );
 
 export default Footer;
