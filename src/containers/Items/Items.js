@@ -3,7 +3,7 @@ import './style.css';
 
 
 const Items = () => (
-  <h1>Heelow</h1>
+  <h1>Item JS</h1>
 );
 
 export default Items;

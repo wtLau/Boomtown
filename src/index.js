@@ -14,11 +14,11 @@ import Items from './containers/Items';
 injectTapEventPlugin();
 
 const Boomtown = () => (
-    <MuiThemeProvider muiTheme={muiTheme}>
-        <Layout>
-            <Login />
-        </Layout>
-    </MuiThemeProvider>
+  <MuiThemeProvider muiTheme={muiTheme}>
+    <Layout>
+      <Login />
+    </Layout>
+  </MuiThemeProvider>
 
 );
 

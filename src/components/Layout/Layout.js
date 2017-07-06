@@ -1,18 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AppBarExampleIcon from './Header';
+import Footer from './Footer';
 
 import './styles.css';
 
 const Layout = ({ children }) => (
-    <div className="appContentWrapper">
-        <div className="appHeader">
-            {/* Might want to put your header bar here... */}
-        </div>
-        <div className="appContent">
-            {children}
-        </div>
-        {/* And a footer here, but not on the login route... */}
+  <div className="appContentWrapper">
+    <div className="appHeader">
+      <AppBarExampleIcon />
     </div>
+    <div className="appContent">
+     {children}
+    </div>
+    <Footer />
+  </div>
 );
 
 Layout.defaultProps = {
