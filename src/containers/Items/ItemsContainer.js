@@ -24,6 +24,8 @@ class ItemsContainer extends Component {
         return item;
       });
 
+      console.log(itemsWithOwners)
+
       this.setState({
         itemsData: itemsWithOwners,
         loading: false
