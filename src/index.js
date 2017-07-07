@@ -8,18 +8,22 @@ import './index.css';
 import muiTheme from './config/theme';
 
 import Layout from './components/Layout';
-import Login from './containers/Login';
-import ItemCard from './containers/Items';
-import NotFound from './containers/NotFound';
+
+
+// import Login from './containers/Login';
+// import ItemCard from './containers/Items';
+// import NotFound from './containers/NotFound';
 
 injectTapEventPlugin();
 
 const Boomtown = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
-    <Layout>
-      <ItemCard />
-
-    </Layout>
+      {/*<ItemCard />*/}
+    <Router>
+      <Layout>
+        <Routes />
+      </Layout>
+    </Router>
   </MuiThemeProvider>
 
 );
