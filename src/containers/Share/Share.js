@@ -3,7 +3,7 @@ import './style.css';
 
 
 const Share = () => (
-  <h1>not found</h1>
+  <h1>SHARE SHARE SHARE SHARE MEMEMEMMEMEME</h1>
 );
 
 export default Share;

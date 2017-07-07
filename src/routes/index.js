@@ -1,3 +1,3 @@
-import Routes from 'react-router-dom';
+import Routes from './Routes';
 
-export default routes;
+export default Routes;
