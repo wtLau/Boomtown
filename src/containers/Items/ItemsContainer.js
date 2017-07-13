@@ -6,7 +6,6 @@ class ItemsContainer extends Component {
 
   constructor() {
     super();
-
     this.state = {
       loading: true,
       itemsData: []
