@@ -5,3 +5,13 @@
   align-items: center;
   height: 100vh;
 }
+
+.item-container {
+  width: 400px;
+}
+
+.entry-item {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}

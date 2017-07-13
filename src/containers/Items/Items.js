@@ -7,9 +7,9 @@ import './style.css';
 
 
 const Items = ({ itemsData }) => (
-  <div>
+  <div className="entry-item">
     {itemsData.map(item => (
-      <div key={item.id}>
+      <div key={item.id} className="item-container">
         <Card>
           <CardMedia
             overlay={
