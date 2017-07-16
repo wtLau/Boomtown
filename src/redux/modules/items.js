@@ -9,7 +9,6 @@ export function loadItemsList(itemsWithOwners) {
   };
 }
 
-
 // Reducers
 const initialState = {
   loading: true,

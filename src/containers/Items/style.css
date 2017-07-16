@@ -1,17 +1,20 @@
-.loaderWrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  align-items: center;
-  height: 100vh;
+.itemCardListWrapper {
+    width: 100%;
 }
 
-.item-container {
-  width: 400px;
+.itemCardWrapper {
+    padding: 1%;
+    width: 100%;
 }
 
-.entry-item {
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
+@media only screen and (min-width: 600px) {
+    .itemCardWrapper {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 960px) {
+    .itemCardWrapper {
+        width: 33%;
+    }
 }

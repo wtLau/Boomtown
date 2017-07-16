@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import Items from './Items';
 import Loader from '../Loader/Loader';
+
 import { fetchItemData } from '../../redux/modules/items';
 
 
@@ -16,10 +16,6 @@ class ItemsContainer extends Component {
     return <Items itemsData={this.props.itemsData} />;
   }
 }
-// TODO: add prop type check
-// itemsData.propTypes = {
-//   number: PropTypes.number.isRequired,
-// };
 
 function mapStateToProps(state) {
   return {
