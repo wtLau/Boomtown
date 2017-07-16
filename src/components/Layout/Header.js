@@ -2,6 +2,7 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
+import { Link } from 'react-router-dom';
 import boomtownLogo from '../../images/boomtown-logo.svg';
 
 import './styles.css';
@@ -14,7 +15,9 @@ const style = {
 const Header = () => (
   <div className="header">
     <div className="logo_menu">
-      <img className="logo" alt="logo" src={boomtownLogo} />
+      <Link to="/">
+        <img className="logo" alt="logo" src={boomtownLogo} />
+      </Link>
       <DropDownMenu value={'Filer by Tag'} >
         <MenuItem value={1} primaryText="Electronics" />
         <MenuItem value={2} primaryText="Household Items" />
@@ -26,8 +29,12 @@ const Header = () => (
       </DropDownMenu>
     </div>
     <div className="buttons">
-      <RaisedButton label="My Profile" primary={true} style={style} />
-      <RaisedButton label="Log Out"  style={style} />
+      <Link to="/profile">
+        <RaisedButton label="My Profile" primary={true} style={style} />
+      </Link>
+      <Link to="/daf">
+        <RaisedButton label="Log Out"  style={style} />
+      </Link>      
     </div>
   </div>
 );
