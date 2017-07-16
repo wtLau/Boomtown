@@ -7,28 +7,27 @@ import Gravatar from 'react-gravatar';
 
 
 const ItemsCard = ({ itemData }) => (
-  <div className="entry-itemData">
-    <div className="itemData-container">
-      <Card>
-        <CardMedia overlay={
-          <CardTitle title={itemData.title} />} >
-          <img src={itemData.imageUrl} alt={itemData.title} />
-        </CardMedia>
-        <CardHeader
-          title={itemData.itemOwner.fullName}
-          subtitle={moment.unix(itemData.createdOn).fromNow()}
-          avatar={<Gravatar email={itemData.itemOwner.email} />}
-        />
-        <CardTitle title={itemData.title} subtitle={itemData.tags} />
-        <CardText>
-          {itemData.description}
-        </CardText>
-        <CardActions>
-          <FlatButton label="BORROW" />
-        </CardActions>
-      </Card>
-    </div>
-  </div>
+
+  <li className="itemCardWrapper">
+    <Card>
+      <CardMedia overlay={
+        <CardTitle title={itemData.title} />} >
+        <img src={itemData.imageUrl} alt={itemData.title} />
+      </CardMedia>
+      <CardHeader
+        title={itemData.itemOwner.fullName}
+        subtitle={moment.unix(itemData.createdOn).fromNow()}
+        avatar={<Gravatar email={itemData.itemOwner.email} />}
+      />
+      <CardTitle title={itemData.title} subtitle={itemData.tags} />
+      <CardText>
+        {itemData.description}
+      </CardText>
+      <CardActions>
+        <FlatButton label="BORROW" />
+      </CardActions>
+    </Card>
+  </li>
 );
 
 export default ItemsCard;

@@ -1,27 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import Profile from './Profile';
-import { fetchProfileData } from '../../redux/modules/profile';
+import Items from './Profile';
+import Loader from '../Loader/Loader';
+
+import { fetchItemData } from '../../redux/modules/items';
 
 
 class ProfileContainer extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchProfileData());
+    this.props.dispatch(fetchItemData());
   }
 
   render() {
-    return <Profile profileData={this.props.profileData} />;
+    if (this.props.loading) return <Loader />;
+    return <Items itemsData={this.props.itemsData} />;
   }
 }
-// TODO: add prop type check
-// Items.propTypes = {
-//   itemsData: PropTypes.objectOf()
-// };
 
 function mapStateToProps(state) {
   return {
-    profileData: state.profile.profileData
+    loading: state.items.loading,
+    itemsData: state.items.itemsData
   };
 }
 export default connect(mapStateToProps)(ProfileContainer);
