@@ -1,9 +1,13 @@
 import React from 'react';
+import Error404 from '../../images/404.svg';
+
 import './style.css';
 
 
 const NotFound = () => (
-  <h1>not found</h1>
+  <div className="error-404">
+    <img src={Error404} alt="error404" />
+  </div>
 );
 
 export default NotFound;
