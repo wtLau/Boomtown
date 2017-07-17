@@ -24,20 +24,31 @@ export function ProfileRenderer(state = initialState, action) {
   }
 }
 
+
 // Fetch Action, Thunk
-export function fetchProfileData() {
-  return function (dispatch) {
-    Promise.all(['http://localhost:3001/items', 'http://localhost:3001/users'].map(url => (
-    fetch(url).then(response => response.json())
-  ))).then(json => {
-    const [items, users] = json;
-    const profileWithOwners = items.map(item => {
-      const itemOwner = users.filter(
-        user => user.id === item.itemOwner);
-      item.itemOwner = itemOwner[0];
-      return item;
-    });
-    dispatch(loadProfile(profileWithOwners));
-  });
+export function fetchProfileData(profileId) {
+  return function getProfile(dispatch) {
+    Promise
+      .all([
+        'http://localhost:3001/items', 
+        'http://localhost:3001/users']
+
+      .map(url => (
+        fetch(url)
+          .then(response => response.json())
+
+      ))).then(json => {
+        const [items, users] = json;
+        const profileWithOwners = items
+
+          // .filter(it => it.itemOwner === id)
+          .map(item => {
+            const itemOwner = users.filter(
+              user => user.id === item.itemOwner);
+            item.itemOwner = itemOwner[0];
+            return item;
+          });
+        dispatch(loadProfile(profileWithOwners));
+      });
   };
 }
