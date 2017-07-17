@@ -11,14 +11,15 @@ const style = {
   margin: 12,
 };
 
-
 const Header = () => (
   <div className="header">
     <div className="logo_menu">
       <Link to="/">
         <img className="logo" alt="logo" src={boomtownLogo} />
       </Link>
-      <DropDownMenu value={'Filer by Tag'} >
+      
+      {/* TODO: add a default name for the menu */}
+      <DropDownMenu onChange={this.handleChange} >
         <MenuItem value={1} primaryText="Electronics" />
         <MenuItem value={2} primaryText="Household Items" />
         <MenuItem value={3} primaryText="Musical Instruments" />
