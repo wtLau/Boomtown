@@ -1,10 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
-import SelectField from 'material-ui/SelectField';
-import MenuItem from 'material-ui/MenuItem';
 import { Link } from 'react-router-dom';
 import boomtownLogo from '../../images/boomtown-logo.svg';
-import FilterList from '../../components/FilterList';
+import FilterList from '../FilterList';
+import { itemListFilter } from '../../redux/modules/items';
 
 import './styles.css';
 
@@ -12,15 +12,18 @@ const style = {
   margin: 12,
 };
 
-const Header = () => (
+const Header = ({ dispatch, itemFilter }) => (
   <div className="header">
     <div className="logo_menu">
       <Link to="/">
         <img className="logo" alt="logo" src={boomtownLogo} />
       </Link>
-      <FilterList />
+      <FilterList
+        dispatch={dispatch}
+        handleChange={itemListFilter}
+        itemFilter={itemFilter}
+      />
     </div>
-
     <div className="buttons">
       <Link to="/profile">
         <RaisedButton label="My Profile" primary={true} style={style} />
@@ -32,4 +35,10 @@ const Header = () => (
   </div>
 );
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    itemFilter: state.items.itemFilter
+  };
+}
+
+export default connect(mapStateToProps)(Header);

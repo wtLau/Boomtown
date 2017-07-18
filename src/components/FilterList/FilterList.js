@@ -2,49 +2,61 @@ import React, { Component } from 'react';
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-const names = [
-  'Electronics',
-  'Household Items',
-  'Musical Instruments',
-  'Physical Media',
-  'Recreational Equipment',
-  'Sporting Goods',
-  'Tools',
-];
+const FilterList = ({ dispatch, itemFilter, handleChange }) => {
+  const tags = [
+    'Electronics',
+    'Household Items',
+    'Musical Instruments',
+    'Physical Media',
+    'Recreational Equipment',
+    'Sporting Goods',
+    'Tools',
+  ];
 
-/**
- * `SelectField` can handle multiple selections. It is enabled with the `multiple` property.
- */
-export default class FilterList extends Component {
-  state = {
-    values: [],
-  };
+  return (
+    <SelectField
+      multiple={true}
+      hintText="Filter by Tag"
+      value={itemFilter}
+      onChange={(event, index, value) => dispatch(handleChange(value))}
+    >
+      {tags.map((tag) => (
+        <MenuItem
+          key={tag}
+          insetChildren={true}
+          checked={itemFilter && itemFilter.includes(tag)}
+          value={tag}
+          primaryText={tag}
+        />
+        ))}
+    </SelectField>
+  );
 
-  handleChange = (event, index, values) => this.setState({ values });
+  // menuItems(values) {
+  //   return names.map((name) => (
+  //     <MenuItem
+  //       key={name}
+  //       insetChildren={true}
+  //       checked={values && values.indexOf(name) > -1}
+  //       value={name}
+  //       primaryText={name}
+  //     />
+  //   ));
+  // }
 
-  menuItems(values) {
-    return names.map((name) => (
-      <MenuItem
-        key={name}
-        insetChildren={true}
-        checked={values && values.indexOf(name) > -1}
-        value={name}
-        primaryText={name}
-      />
-    ));
-  }
+  // render() {
+  //   const { values } = this.state;
+  //   return (
+  //     <SelectField
+  //       multiple={true}
+  //       hintText="Filter by Tag"
+  //       value={values}
+  //       onChange={}
+  //     >
+  //       {this.menuItems(values)}
+  //     </SelectField>
+  //   );
+  // }
+};
 
-  render() {
-    const { values } = this.state;
-    return (
-      <SelectField
-        multiple={true}
-        hintText="Filter by Tag"
-        value={values}
-        onChange={this.handleChange}
-      >
-        {this.menuItems(values)}
-      </SelectField>
-    );
-  }
-}
+export default FilterList;
