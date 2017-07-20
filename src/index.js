@@ -5,6 +5,8 @@ import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import registerServiceWorker from './registerServiceWorker';
+import { ApolloProvider } from 'react-apollo';
+import client from './config/apolloClient';
 
 import './index.css';
 import muiTheme from './config/theme';
@@ -18,13 +20,13 @@ injectTapEventPlugin();
 
 const Boomtown = () => (
   <MuiThemeProvider muiTheme={muiTheme}>
-    <Provider store={store}>
+    <ApolloProvider client={client} store={store}>
       <Router>
         <Layout>
           <Routes />
         </Layout>
       </Router>
-    </Provider>
+    </ApolloProvider>
   </MuiThemeProvider>
 
 );

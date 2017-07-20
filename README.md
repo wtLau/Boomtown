@@ -24,3 +24,5 @@
 
 ```npm i --save redux-middleware```
 
+```npm i -S react-apollo graphql-tag```
+
