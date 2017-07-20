@@ -4,8 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 // import { Provider } from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import registerServiceWorker from './registerServiceWorker';
 import { ApolloProvider } from 'react-apollo';
+import registerServiceWorker from './registerServiceWorker';
 import client from './config/apolloClient';
 
 import './index.css';
