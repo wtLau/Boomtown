@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+
+
+import { fetchItemData } from '../../redux/modules/items';
 import Items from './Items';
 import Loader from '../Loader/Loader';
 
-import { fetchItemData } from '../../redux/modules/items';
 
 class ItemsContainer extends Component {
   componentDidMount() {
@@ -33,6 +37,26 @@ class ItemsContainer extends Component {
   }
 }
 
+  const fetchItemNew = gql`
+    query {
+      items {
+        id
+        title
+        description
+        imageUrl
+        tags
+        itemOwner {
+          id
+        }
+        createdOn
+        available
+        borrower {
+          id
+        }
+      }
+    }
+  `
+
 function mapStateToProps(state) {
   return {
     loading: state.items.loading,
@@ -40,4 +64,8 @@ function mapStateToProps(state) {
     itemFilter: state.items.itemFilter
   };
 }
+
+// const MoviesListWithData = graphql(fetchMovies)(MoviesList);
+// export default connect(mapStateToProps)(MoviesListWithData);
+
 export default connect(mapStateToProps)(ItemsContainer);
