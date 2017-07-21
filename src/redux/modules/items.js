@@ -20,7 +20,7 @@ export function itemListFilter(itemFilter) {
 // Reducers
 const initialState = {
   loading: true,
-  itemsData: [],
+  // itemsData: [],
   itemFilter: []
 };
 
@@ -39,21 +39,21 @@ export function CardRenderer(state = initialState, action) {
   }
 }
 
-// Fetch Action, Thunk
-export function fetchItemData() {
-  return function (dispatch) {
-    Promise.all(['http://localhost:3001/items', 'http://localhost:3001/users'].map(url => (
-    fetch(url).then(response => response.json())
-  ))).then(json => {
-    const [items, users] = json;
-    const itemsWithOwners = items.map(item => {
-      const itemOwner = users.filter(
-        user => user.id === item.itemOwner);
-      item.itemOwner = itemOwner[0];
-      return item;
-    });
-    dispatch(loadItemsList(itemsWithOwners));
-  });
-  };
-}
+// // Fetch Action, Thunk
+// export function fetchItemData() {
+//   return function (dispatch) {
+//     Promise.all(['http://localhost:3001/items', 'http://localhost:3001/users'].map(url => (
+//     fetch(url).then(response => response.json())
+//   ))).then(json => {
+//     const [items, users] = json;
+//     const itemsWithOwners = items.map(item => {
+//       const itemOwner = users.filter(
+//         user => user.id === item.itemOwner);
+//       item.itemOwner = itemOwner[0];
+//       return item;
+//     });
+//     dispatch(loadItemsList(itemsWithOwners));
+//   });
+//   };
+// }
 

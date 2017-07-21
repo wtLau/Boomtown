@@ -2,22 +2,38 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
+import PropTypes from 'prop-types';
 
-
-import { fetchItemData } from '../../redux/modules/items';
 import Items from './Items';
 import Loader from '../Loader/Loader';
 
 
-class ItemsContainer extends Component {
-  componentDidMount() {
-    this.props.dispatch(fetchItemData());
+const fetchItemNew = gql`
+  query itemList{
+    items {
+      id
+      title
+      description
+      imageUrl
+      tags
+      itemOwner {
+        id
+      }
+      createdOn
+      available
+      borrower {
+        id
+      }
+    }
   }
+`;
 
-  newFilterList(itemFilter) {
-    const { itemsData } = this.props;
+class ItemsContainer extends Component {
+  newFilterList() {
+    const itemsData = this.props.data.items || [];
+    let itemFilter = this.props.itemFilter;
 
-    if (itemFilter) {
+    if (itemFilter.length) {
       return itemsData.filter(
         (itemData) => (itemData.tags.find(tag => itemFilter.includes(tag)))
       );
@@ -26,46 +42,31 @@ class ItemsContainer extends Component {
   }
 
   render() {
-    const { itemFilter } = this.props;
-    const filterItems = this.newFilterList(itemFilter);
-    if (this.props.loading) return <Loader />;
-    if (filterItems.length) {
+    const loading = this.props.data.loading;
+    if (loading) return <Loader />;
+
+    const filterItems = this.newFilterList();
+
+    // if (filterItems.length) {
       return <Items itemsData={filterItems} />;
-    } else {
-      return <Items itemsData={this.props.itemsData} />;
-    }
+    // } else {
+    //   return <Items itemsData={this.props.data.items} />;
+    // }
   }
 }
 
-  const fetchItemNew = gql`
-    query {
-      items {
-        id
-        title
-        description
-        imageUrl
-        tags
-        itemOwner {
-          id
-        }
-        createdOn
-        available
-        borrower {
-          id
-        }
-      }
-    }
-  `
-
 function mapStateToProps(state) {
   return {
-    loading: state.items.loading,
-    itemsData: state.items.itemsData,
+    // loading: state.items.loading,
     itemFilter: state.items.itemFilter
   };
 }
 
-// const MoviesListWithData = graphql(fetchMovies)(MoviesList);
-// export default connect(mapStateToProps)(MoviesListWithData);
+// ItemsContainer.propTypes = {
+//   data: PropTypes.any,
+//   itemFilter: PropTypes.
+// };
 
-export default connect(mapStateToProps)(ItemsContainer);
+const ItemsContainerWithData = graphql(fetchItemNew)(ItemsContainer);
+export default connect(mapStateToProps)(ItemsContainerWithData);
+

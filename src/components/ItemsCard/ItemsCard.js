@@ -7,7 +7,6 @@ import Gravatar from 'react-gravatar';
 
 
 const ItemsCard = ({ itemData }) => (
-
   <li className="itemCardWrapper">
     <Card>
       <CardMedia overlay={
