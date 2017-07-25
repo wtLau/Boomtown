@@ -13,10 +13,21 @@ import muiTheme from './config/theme';
 
 import Layout from './components/Layout';
 import Routes from './routes/';
+import { loadLoginAuth } from './redux/modules/auth';
+import { FirebaseAuth } from './config/firebase';
 
 import store from './redux/store';
 
+FirebaseAuth.onAuthStateChanged(user => {
+  if (user) {
+    store.dispatch(loadLoginAuth(user));
+  } else {
+    store.dispatch(loadLoginAuth(false));
+  }
+});
+
 injectTapEventPlugin();
+
 
 const Boomtown = () => (
   <MuiThemeProvider muiTheme={muiTheme}>

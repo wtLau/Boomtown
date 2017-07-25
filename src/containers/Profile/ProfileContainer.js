@@ -4,31 +4,31 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import Profile from './Profile';
-import Items from '../Items/';
+import Items from '../Items/Items';
 import Loader from '../Loader/Loader';
 
 
 const fetchProfileNew = gql`
-  query profileList{
-    users {
+  query profileList($id: ID!){
+    user (id: $id){
       id
       email
       fullName
       bio
-    }
-    items {
-      id
-      title
-      description
-      imageUrl
-      tags
-      itemOwner {
+      items {
         id
-      }
-      createdOn
-      available
-      borrower {
-        id
+        title
+        description
+        imageUrl
+        tags
+        itemOwner {
+          id
+        }
+        createdOn
+        available
+        borrower {
+          id
+        }
       }
     }
   }
@@ -39,21 +39,27 @@ class ProfileContainer extends Component {
     if (this.props.data.loading) return <Loader />;
     return (
       <div>
-        <Profile profileData={this.props.data.users} />
+        <Profile profileData={this.props.data.user} />
         {/* [this.props.match.params.id] */}
-        <Items itemsData={this.props.data.users} />;
+        <Items itemsData={this.props.data.user.items} />;
       </div>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    loading: state.items.loading,
-    itemsData: state.items.itemsData,
-    // profileData: state.users.profileData
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     loading: state.items.loading,
+//     profileData: state.profile.profileData
+//   };
+// }
 
-const ProfileContainerWithData = graphql(fetchProfileNew)(ProfileContainer);
-export default connect(mapStateToProps)(ProfileContainerWithData);
+export default graphql(fetchProfileNew, {
+  options: ownProps => {
+    return { variables: {
+        id: ownProps.match.params.id
+      }
+    }
+  }
+})(ProfileContainer);
+

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-//import all components
+// import all components
 import Items from '../containers/Items/';
 import Login from '../containers/Login/';
 import Share from '../containers/Share/';
@@ -13,7 +13,7 @@ const Routes = () => (
     <Route path="/login" component={Login} />
     <Route exact path="/" component={Items} />
     <Route path="/shares" component={Share} />
-    <Route path="/profile" component={Profile} />
+    <Route path="/profile/:id" component={Profile} />
     <Route component={NotFound} />
   </Switch>
 );

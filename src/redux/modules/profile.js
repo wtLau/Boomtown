@@ -19,7 +19,7 @@ const initialState = {
 export function ProfileRenderer(state = initialState, action) {
   switch (action.type) {
   case LOAD_PROFILE:
-    return { loading: false, profileData: action.payload };
+    return { ...state, loading: false, profileData: action.payload };
   default:
     return state;
   }

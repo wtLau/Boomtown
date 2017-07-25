@@ -1,33 +1,35 @@
 // Action Constants
 const LOGIN_AUTH = 'LOGIN_AUTH';
 const LOGIN_AUTH_ERROR = 'LOGIN_AUTH_ERROR';
-const SHOW_JOIN_MODAL = 'SHOW_JOIN_MODAL';
+// const SHOW_JOIN_MODAL = 'SHOW_JOIN_MODAL';
 
 // Action Creators
-export function loadLoginAuth(userLogin) {
+export const loadLoginAuth = (userLogin) => {
   return {
     type: LOGIN_AUTH,
     payload: userLogin
   };
-}
-export function loadLoginError(errorLogin) {
+};
+
+export const showLoginError = (displayErrorLogin) => {
   return {
     type: LOGIN_AUTH_ERROR,
-    payload: errorLogin
+    payload: displayErrorLogin
   };
-}
-export function loadJoinModal(joinModal) {
-  return {
-    type: SHOW_JOIN_MODAL,
-    payload: joinModal
-  };
-}
+};
+
+// export function loadJoinModal(joinModal) {
+//   return {
+//     type: SHOW_JOIN_MODAL,
+//     payload: joinModal
+//   };
+// }
 
 // Reducers
 const initialState = {
-  loginAuth: 'LOADING_PROFILE',
+  loginAuth: false,
   showLoginError: false,
-  showJoinModal: false
+  // showJoinModal: false
 };
 
 export function LoginRenderer(state = initialState, action) {
@@ -35,9 +37,9 @@ export function LoginRenderer(state = initialState, action) {
   case LOGIN_AUTH:
     return { ...state, loginAuth: action.payload };
   case LOGIN_AUTH_ERROR:
-    return { ...state, showLoginError: true };
-  case SHOW_JOIN_MODAL:
-    return { ...state, showJoinModal: action.payload };
+    return { ...state, showLoginError: action.payload };
+  // case SHOW_JOIN_MODAL:
+  //   return { ...state, showJoinModal: action.payload };
   default:
     return state;
   }
