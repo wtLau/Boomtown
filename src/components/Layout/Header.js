@@ -25,7 +25,7 @@ const Header = ({ dispatch, itemFilter }) => (
       />
     </div>
     <div className="buttons">
-      <Link to="/profile">
+      <Link to="/profile/TyHcYnSocuOg6PmWQivgxerTLcq2">
         <RaisedButton label="My Profile" primary={true} style={style} />
       </Link>
       <Link to="/daf">
