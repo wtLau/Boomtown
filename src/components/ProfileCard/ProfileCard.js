@@ -1,11 +1,11 @@
 import React from 'react';
-import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
-import FlatButton from 'material-ui/FlatButton';
 
-const ProfileCard = ({ itemData }) => (
+import { Card, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
+
+const ProfileCard = ({ profileData }) => (
   <Card>
     <CardHeader
-      title="URL Avatar"
+      title={profileData.id}
       subtitle="Subtitle"
       avatar="images/jsa-128.jpg"
     />

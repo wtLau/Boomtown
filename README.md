@@ -26,3 +26,7 @@
 
 ```npm i -S react-apollo graphql-tag```
 
+```npm install --save dataloader```
+
+
+``` npm i --save firebase```

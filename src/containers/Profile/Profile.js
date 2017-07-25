@@ -1,12 +1,10 @@
 import React from 'react';
-import ItemsCardList from '../../components/ItemsCardList';
 import ProfileCard from '../../components/ProfileCard/';
 import './style.css';
 
-const Profile = ({ itemsData }) => (
+const Profile = ({ profileData }) => (
   <div>
-    <ProfileCard itemData={itemsData} />
-    <ItemsCardList itemsData={itemsData} />
+    <ProfileCard profileData={profileData} />
   </div>
 );
 

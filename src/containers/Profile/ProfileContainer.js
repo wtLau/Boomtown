@@ -3,10 +3,9 @@ import { connect } from 'react-redux';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import Items from './Profile';
+import Profile from './Profile';
+import Items from '../Items/';
 import Loader from '../Loader/Loader';
-
-// import { fetchItemData } from '../../redux/modules/items';
 
 
 const fetchProfileNew = gql`
@@ -16,16 +15,6 @@ const fetchProfileNew = gql`
       email
       fullName
       bio
-      items {
-        id
-      }
-      borrowed {
-        id
-        title
-        itemOwner {
-          fullName
-        }
-      }
     }
     items {
       id
@@ -48,14 +37,21 @@ const fetchProfileNew = gql`
 class ProfileContainer extends Component {
   render() {
     if (this.props.data.loading) return <Loader />;
-    return <Items itemsData={this.props.data.items} />;
+    return (
+      <div>
+        <Profile profileData={this.props.data.users} />
+        {/* [this.props.match.params.id] */}
+        <Items itemsData={this.props.data.users} />;
+      </div>
+    );
   }
 }
 
 function mapStateToProps(state) {
   return {
     loading: state.items.loading,
-    itemsData: state.items.itemsData
+    itemsData: state.items.itemsData,
+    // profileData: state.users.profileData
   };
 }
 

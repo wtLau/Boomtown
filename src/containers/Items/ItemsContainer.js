@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import PropTypes from 'prop-types';
 
 import Items from './Items';
 import Loader from '../Loader/Loader';
@@ -31,7 +30,7 @@ const fetchItemNew = gql`
 class ItemsContainer extends Component {
   newFilterList() {
     const itemsData = this.props.data.items || [];
-    let itemFilter = this.props.itemFilter;
+    const itemFilter = this.props.itemFilter;
 
     if (itemFilter.length) {
       return itemsData.filter(
@@ -47,11 +46,7 @@ class ItemsContainer extends Component {
 
     const filterItems = this.newFilterList();
 
-    // if (filterItems.length) {
-      return <Items itemsData={filterItems} />;
-    // } else {
-    //   return <Items itemsData={this.props.data.items} />;
-    // }
+    return <Items itemsData={filterItems} />;
   }
 }
 
@@ -61,11 +56,6 @@ function mapStateToProps(state) {
     itemFilter: state.items.itemFilter
   };
 }
-
-// ItemsContainer.propTypes = {
-//   data: PropTypes.any,
-//   itemFilter: PropTypes.
-// };
 
 const ItemsContainerWithData = graphql(fetchItemNew)(ItemsContainer);
 export default connect(mapStateToProps)(ItemsContainerWithData);
