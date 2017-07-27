@@ -19,7 +19,7 @@ const fetchProfileNew = gql`
         id
         title
         description
-        imageUrl
+        imageurl
         tags
         itemOwner {
           id

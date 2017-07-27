@@ -10,10 +10,10 @@ import Loader from '../Loader/Loader';
 const fetchItemNew = gql`
   query itemList{
     items {
-      id
+    
       title
       description
-      imageUrl
+      imageurl
       tags
       itemOwner {
         id

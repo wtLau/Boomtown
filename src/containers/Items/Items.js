@@ -8,8 +8,4 @@ const Items = ({ itemsData }) => (
   <ItemsCardList itemsData={itemsData} />
 );
 
-// Items.propTypes = {
-//   itemsData: PropTypes.objectOf().isRequired
-// };
-
 export default Items;

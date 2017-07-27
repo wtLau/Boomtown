@@ -20,9 +20,9 @@ import store from './redux/store';
 
 FirebaseAuth.onAuthStateChanged(user => {
   if (user) {
-    store.dispatch(loadLoginAuth(user));
+    store.dispatch(loadLoginAuth(user.uid));
   } else {
-    store.dispatch(loadLoginAuth(false));
+    store.dispatch(loadLoginAuth(user));
   }
 });
 

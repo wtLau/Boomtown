@@ -11,10 +11,10 @@ const ItemsCard = ({ itemData }) => (
     <Card>
       <CardMedia overlay={
         <CardTitle title={itemData.title} />} >
-        <img src={itemData.imageUrl} alt={itemData.title} />
+        <img src={itemData.imageurl} alt={itemData.title} />
       </CardMedia>
       <CardHeader
-        title={itemData.itemOwner.fullName}
+        title={itemData.itemOwner.fullname}
         subtitle={moment.unix(itemData.createdOn).fromNow()}
         avatar={<Gravatar email={itemData.itemOwner.email} />}
       />
