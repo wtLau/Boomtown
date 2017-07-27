@@ -22,15 +22,15 @@ class SignUpContainer extends Component {
     event.preventDefault();
     this.props.mutate({
       variables: {
-        fullname: 'Brian',
-        email: '2lauwandgtatbrian@hotmail.com',
+        fullname: 'Brian-test',
+        email: '3lauwandgtatbrian@hotmail.com',
         bio: 'ldsf',
         password: 'laulau' }
     })
       .then(({ data }) => {
         console.log('got data', data);
         this.login({
-          email: '2lauwandgtatbrian@hotmail.com',
+          email: '3lauwandgtatbrian@hotmail.com',
           password: 'laulau' });
       }).catch((error) => {
         console.log(error);
@@ -74,7 +74,6 @@ const addUser = gql`
 function mapStateToProps(state) {
   return {
     authenticated: state.auth.loginAuth,
-    // loginFormValues
   };
 }
 
