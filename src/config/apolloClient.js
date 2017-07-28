@@ -1,19 +1,18 @@
 import {
   ApolloClient,
-  createNetworkInterface,
-  applyMiddleware
+  createBatchingNetworkInterface
  } from 'apollo-client';
 
 import {
    FirebaseAuth
  } from './firebase';
 
-const networkInterface = createNetworkInterface({
+const networkInterface = createBatchingNetworkInterface({
   uri: 'http://localhost:4000/graphql'
 });
 
 networkInterface.use([{
-  async applyMiddleware(req, next) {
+  async applyBatchMiddleware(req, next) {
     if (!req.options.headers) {
       req.options.headers = {};
     }
