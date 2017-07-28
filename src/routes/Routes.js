@@ -1,7 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
+
 // import all components
+import PrivateRoute from '../components/PrivateRoute/';
 import Items from '../containers/Items/';
 import Login from '../containers/Login/';
 import Share from '../containers/Share/';
@@ -11,12 +13,12 @@ import SignUp from '../containers/SignUp/';
 
 const Routes = () => (
   <Switch>
-    <Route path="/login" component={Login} />
-    <Route path="/signup" component={SignUp} />
-    <Route exact path="/" component={Items} />
-    <Route path="/shares" component={Share} />
-    <Route path="/profile/:id" component={Profile} />
-    <Route component={NotFound} />
+    <Route exact path="/login" component={Login} />
+    <PrivateRoute path="/signup" component={SignUp} />
+    <PrivateRoute exact path="/" component={Items} />
+    <PrivateRoute exact path="/shares" component={Share} />
+    <PrivateRoute exact path="/profile/:id" component={Profile} />
+    <PrivateRoute component={NotFound} />
   </Switch>
 );
 
