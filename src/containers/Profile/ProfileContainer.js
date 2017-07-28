@@ -10,12 +10,10 @@ import Loader from '../Loader/Loader';
 const fetchProfileNew = gql`
   query profileList($id: ID!){
     user (id: $id){
-      id
       email
       fullname
       bio
       borrowed {
-        id
         title
         itemowner {
           fullname
@@ -48,7 +46,7 @@ class ProfileContainer extends Component {
     return (
       <div>
         <Profile profileData={this.props.data.user} />
-        {/* <Items itemsData={this.props.data.user.items} />; */}
+         <Items itemsData={this.props.data.user.items} />;
       </div>
     );
   }
