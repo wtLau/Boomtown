@@ -12,18 +12,27 @@ const fetchProfileNew = gql`
     user (id: $id){
       id
       email
-      fullName
+      fullname
       bio
+      borrowed {
+        id
+        title
+        itemowner {
+          fullname
+        }
+      }
       items {
         id
         title
         description
         imageurl
-        tags
-        itemOwner {
-          id
+        tags {
+          title
         }
-        createdOn
+        itemowner {
+          fullname
+        }
+        created
         available
         borrower {
           id
@@ -39,8 +48,7 @@ class ProfileContainer extends Component {
     return (
       <div>
         <Profile profileData={this.props.data.user} />
-        {/* [this.props.match.params.id] */}
-        <Items itemsData={this.props.data.user.items} />;
+        {/* <Items itemsData={this.props.data.user.items} />; */}
       </div>
     );
   }
