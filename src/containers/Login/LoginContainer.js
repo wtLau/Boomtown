@@ -22,29 +22,29 @@ class LoginContainer extends Component {
     });
   }
 
-  join = () => {};
 
-  reset = () => {
-    this.props.reset();
-  };
+  // reset = () => {
+  //   this.props.reset();
+  // };
 
   render() {
-    const { from } = this.props.location.state || { from: { pathname: '/' } };
-    const { authenticated, loginFormValues, ...props } = this.props;
+    // const { from } = this.props.location.state || { from: { pathname: '/' } };
+    // const { authenticated, loginFormValues, ...props } = this.props;
 
     if (this.props.authenticated) {
       return (
-        <Redirect to={from} />
+        <Redirect to={'/'} />
       );
     }
+        //  {...props} */}
+        // {/* reset={this.reset} 
     return (
       <Login
-        {...props}
-        reset={this.reset}
         login={(e) => {
           e.preventDefault();
-          this.login(loginFormValues);
-          {/* { email: 'lau.brian@hotmail.com', password: 'laulau' } */}
+          this.login(
+           { email: 'lauwangtatbrian@hotmail.com', password: 'laulau' }
+          );
         }}
       />
     );
