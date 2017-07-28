@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import Share from './Share';
 
 class ShareContainer extends Component {
-  render() {
-    return (
-      <Share />
-    );
-  }
+  // selectImage = (fileInput) => {
+  //   this.fileInput.click();
+  // }
+  // handleImageUpload = () => {}
+  // handleSubmit = () => {}
+
+  // render() {
+  //   return (
+  //     <Share />
+  //   );
+  // }
 }
 
 

@@ -5,7 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import * as moment from 'moment';
 import Gravatar from 'react-gravatar';
 
-
+        // subtitle={moment.unix(itemData.created).fromNow()}
 const ItemsCard = ({ itemData }) => (
   <li className="itemCardWrapper">
     <Card>
@@ -14,11 +14,10 @@ const ItemsCard = ({ itemData }) => (
         <img src={itemData.imageurl} alt={itemData.title} />
       </CardMedia>
       <CardHeader
-        title={itemData.itemOwner.fullname}
-        subtitle={moment.unix(itemData.createdOn).fromNow()}
-        avatar={<Gravatar email={itemData.itemOwner.email} />}
+        title={itemData.title}
+        avatar={<Gravatar email={itemData.title} />}
       />
-      <CardTitle title={itemData.title} subtitle={itemData.tags} />
+      <CardTitle title={itemData.title} subtitle={itemData.title} />
       <CardText>
         {itemData.description}
       </CardText>

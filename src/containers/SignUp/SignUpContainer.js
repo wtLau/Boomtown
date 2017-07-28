@@ -10,8 +10,6 @@ import SignUp from './SignUp';
 
 class SignUpContainer extends Component {
 
- // static propTypes = {};
-
   login = ({ email, password }) => {
     FirebaseAuth.signInWithEmailAndPassword(email, password)
     .catch((error) => { console.log(error) }

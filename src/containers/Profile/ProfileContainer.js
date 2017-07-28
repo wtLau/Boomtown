@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
@@ -47,19 +46,12 @@ class ProfileContainer extends Component {
   }
 }
 
-// function mapStateToProps(state) {
-//   return {
-//     loading: state.items.loading,
-//     profileData: state.profile.profileData
-//   };
-// }
 
 export default graphql(fetchProfileNew, {
-  options: ownProps => {
-    return { variables: {
-        id: ownProps.match.params.id
-      }
+  options: ownProps => ({
+    variables: {
+      id: ownProps.match.params.id
     }
-  }
+  })
 })(ProfileContainer);
 
