@@ -8,6 +8,7 @@ const ItemCardList = ({ itemsData }) => (
     className={'itemCardListWrapper'}
     elementType={'ul'}
   >
+  {console.log(itemsData)}
     {itemsData.map(itemData => (
       <ItemCard itemData={itemData} />
     ))}

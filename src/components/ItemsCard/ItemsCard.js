@@ -5,7 +5,6 @@ import FlatButton from 'material-ui/FlatButton';
 import * as moment from 'moment';
 import Gravatar from 'react-gravatar';
 
-        // subtitle={moment.unix(itemData.created).fromNow()}
 const ItemsCard = ({ itemData }) => (
   <li className="itemCardWrapper">
     <Card>
@@ -27,6 +26,9 @@ const ItemsCard = ({ itemData }) => (
     </Card>
   </li>
 );
+
+  // subtitle={moment(itemData.created).fromNow()}  
+
 
 export default ItemsCard;
 

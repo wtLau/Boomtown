@@ -26,10 +26,10 @@ const Header = ({ dispatch, itemFilter }) => (
     </div>
     <div className="buttons">
       <Link to="/profile/QpVjRYM0nNU9Tvm8OWtI5ATGiFf1">
-        <RaisedButton label="My Profile" primary={true} style={style} />
+        <RaisedButton label="My Profile" primary="true" style={style} />
       </Link>
       <Link to="/daf">
-        <RaisedButton label="Log Out"  style={style} />
+        <RaisedButton label="Log Out" style={style} />
       </Link>
     </div>
   </div>

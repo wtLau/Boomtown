@@ -34,7 +34,6 @@ class ItemsContainer extends Component {
     if (loading) return <Loader />;
 
     const filterItems = this.newFilterList();
-
     return <Items itemsData={filterItems} />;
   }
 }

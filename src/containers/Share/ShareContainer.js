@@ -8,11 +8,11 @@ class ShareContainer extends Component {
   // handleImageUpload = () => {}
   // handleSubmit = () => {}
 
-  // render() {
-  //   return (
-  //     <Share />
-  //   );
-  // }
+  render() {
+    return (
+      <Share />
+    );
+  }
 }
 
 

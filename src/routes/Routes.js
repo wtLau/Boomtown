@@ -16,7 +16,7 @@ const Routes = () => (
     <Route exact path="/login" component={Login} />
     <PrivateRoute path="/signup" component={SignUp} />
     <PrivateRoute exact path="/" component={Items} />
-    <PrivateRoute exact path="/shares" component={Share} />
+    <PrivateRoute exact path="/shares" component={Items} />
     <PrivateRoute exact path="/profile/:id" component={Profile} />
     <PrivateRoute component={NotFound} />
   </Switch>
